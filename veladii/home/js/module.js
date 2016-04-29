@@ -1,0 +1,2 @@
+
+angular.module('angularApplication',['ngRoute']);

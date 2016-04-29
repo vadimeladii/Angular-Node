@@ -1,0 +1,26 @@
+{
+  "name": "NodeJs",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "veladii",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "restify": "~4.0.4",
+    "mysql": "~2.10.2",
+    "mongodb": "~2.1.16",
+    "jsonwebtoken": "~5.7.0",
+    "mongoose": "~4.4.13",
+    "morgan": "~1.7.0",
+    "body-parser": "~1.15.0",
+    "express": "~4.13.4",
+    "path": "~0.12.7",
+    "angular": "1.4.x",
+    "angular-mocks": "1.4.x",
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.1.1"
+  }
+}
