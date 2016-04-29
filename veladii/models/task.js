@@ -7,5 +7,6 @@ var Schema = mongoose.Schema;
 module.exports = mongoose.model('Task', new Schema({
     id: Number,
     name: String,
-    data: String
+    data: String,
+    idUser:String
 }));

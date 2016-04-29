@@ -25,7 +25,7 @@ app.use(morgan('dev'));
 
 /*  users  */
 
-apiRoutes.get('/users', function (req, res) {
+apiRoutes.get('/v1/users', function (req, res) {
     User.find(function (err, user) {
         if (err)
             res.send(err);
@@ -33,7 +33,7 @@ apiRoutes.get('/users', function (req, res) {
     });
 });
 
-apiRoutes.get('/users/:name', isAuth, function (req, res) {
+apiRoutes.get('/v1/users/:name', isAuth, function (req, res) {
     User.find({username: req.params.username}, function (err, user) {
         if (err)
             res.send(err);
@@ -43,7 +43,7 @@ apiRoutes.get('/users/:name', isAuth, function (req, res) {
 
 app.use(express.static(__dirname+"/home"));
 
-apiRoutes.post('/users', function (req, res) {
+apiRoutes.post('/v1/users', function (req, res) {
 
     var user = new User({
         username: req.body.username,
@@ -56,7 +56,7 @@ apiRoutes.post('/users', function (req, res) {
     });
 });
 
-apiRoutes.put('/users', function (req, res) {
+apiRoutes.put('/v1/users/:username', function (req, res) {
     User.find({username: req.body.username}, function (err, user) {
         if (err)
             req.send(err);
@@ -69,7 +69,7 @@ apiRoutes.put('/users', function (req, res) {
     });
 });
 
-apiRoutes.delete('/users', function (req, res) {
+apiRoutes.delete('/v1/users', function (req, res) {
     User.remove({username: req.body.username}, function (err) {
         if (err)
             res.send(err);
@@ -80,11 +80,12 @@ apiRoutes.delete('/users', function (req, res) {
 
 /*  tasks  */
 
-apiRoutes.post('/tasks',function (req, res) {
+apiRoutes.post('/v1/tasks',function (req, res) {
     var task = new Task({
         id: req.body.id,
         name: req.body.name,
-        data:req.body.data
+        data:req.body.data,
+        idUser:req.body.idUser
     });
     task.save(function (err) {
         if (err) throw err;
@@ -93,7 +94,7 @@ apiRoutes.post('/tasks',function (req, res) {
     });
 });
 
-apiRoutes.get('/tasks', function (req, res) {
+apiRoutes.get('/v1/tasks', function (req, res) {
     Task.find(function (err, user) {
         if (err)
             res.send(err);
@@ -101,7 +102,7 @@ apiRoutes.get('/tasks', function (req, res) {
     });
 });
 
-apiRoutes.delete('/tasks', function (req, res) {
+apiRoutes.delete('/v1/tasks', function (req, res) {
     Task.remove({id: req.body.id}, function (err) {
         if (err)
             res.send(err);
@@ -134,7 +135,7 @@ function isAuth(req, res, next) {
     }
 }
 
-apiRoutes.post('/users/auth', function (req, res) {
+apiRoutes.post('/v1/users/auth', function (req, res) {
     User.findOne({
         username: req.body.name
     }, function (err, user) {
