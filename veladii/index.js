@@ -33,7 +33,7 @@ apiRoutes.get('/v1/users', function (req, res) {
     });
 });
 
-apiRoutes.get('/v1/users/:name', isAuth, function (req, res) {
+apiRoutes.get('/v1/users/:username', function (req, res) {
     User.find({username: req.params.username}, function (err, user) {
         if (err)
             res.send(err);
@@ -94,8 +94,8 @@ apiRoutes.post('/v1/tasks',function (req, res) {
     });
 });
 
-apiRoutes.get('/v1/tasks', function (req, res) {
-    Task.find(function (err, user) {
+apiRoutes.get('/v1/tasks/:idUser', function (req, res) {
+    Task.find({idUser:req.params.idUser},function (err, user) {
         if (err)
             res.send(err);
         res.json(user);

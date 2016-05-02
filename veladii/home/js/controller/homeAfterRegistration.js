@@ -5,7 +5,7 @@
 angular
     .module('angularApplication')
     .controller('homeafter', ['$scope', '$http', '$location', function ($scope, $http, $location) {
-        // if(localStorage.getItem('initToken')==null){
-        //     $location.path("/login");
-        // }
+        if(localStorage.getItem('initToken')==null){
+            $location.path("/login");
+        }
     }]);

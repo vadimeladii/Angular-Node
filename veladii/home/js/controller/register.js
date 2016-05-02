@@ -8,7 +8,7 @@ angular
         $scope.regist = function () {
 
             if ($scope.password == $scope.confirmPassword) {
-                $http.post('http://localhost:8080/api/users', {
+                $http.post('http://localhost:8080/api/v1/users', {
                     username: $scope.username,
                     password: $scope.password
                 }).success(function (data, status) {
