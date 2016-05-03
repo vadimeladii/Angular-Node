@@ -1,8 +1,7 @@
+angular.module('angularApplication').controller('home', controller);
 
-angular
-    .module('angularApplication')
-    .controller('home', ['$scope', '$http', '$location', function ($scope, $http, $location) {
-        if(localStorage.getItem('initToken')==null){
-            $location.path("/login");
-        }
-}]);
+
+function controller($http, $window, $scope, $location) {
+    var vm = this;
+}
+

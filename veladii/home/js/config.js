@@ -4,29 +4,35 @@ angular
         $routeProvide
             .when('/home', {
                 templateUrl: 'template/home.html',
-                controller: 'home'
+                controller: 'home',
+                controllerAs: "vm"
             })
             .when('/login', {
                 templateUrl: 'template/login.html',
-                controller: 'login'
+                controller: 'login',
+                controllerAs: "vm"
             })
             .when('/register', {
                 templateUrl: 'template/regist.html',
-                controller: 'register'
+                controller: 'register',
+                controllerAs: "vm"
             })
             .when('/date', {
                 templateUrl: 'template/date.html',
-                controller: 'date'
+                controller: 'date',
+                controllerAs: "vm"
             })
             .when('/homeAfter', {
                 templateUrl: 'template/homeAfterRegistration.html',
-                controller: 'homeafter'
+                controller: 'homeafter',
+                controllerAs: "vm"
             })
             .when('/logout', {
                 templateUrl: 'template/logout.html',
-                controller: 'logout'
+                controller: 'logout',
+                controllerAs: "vm"
             });
-            // .otherwise({
-            //     redirectTo: '/'
-            // });
+        // .otherwise({
+        //     redirectTo: '/'
+        // });
     }]);
